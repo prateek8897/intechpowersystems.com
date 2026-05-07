@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intech Power Systems — Solar Solutions for a Greener Lucknow</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   ROOT & RESET
+══════════════════════════════════════════════ */
+:root {
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+  --off-white: #F7F7F5;
+  --gray-100: #F0EFE8;
+  --gray-200: #E4E3DA;
+  --gray-400: #B0AFA6;
+  --gray-600: #6B6A62;
+  --gray-800: #2E2D28;
+  --green: #2D5016;
+  --green-mid: #3D6B1F;
+  --green-light: #5A8A2A;
+  --green-accent: #7AB648;
+  --yellow: #F5C518;
+  --yellow-warm: #E8B40A;
+  --blue-dark: #003F8A;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--green-accent); border-radius: 3px; }
+
+/* ══════════════════════════════════════════════
+   LOADER
+══════════════════════════════════════════════ */
+#loader {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--black);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.gone { opacity: 0; visibility: hidden; }
+.loader-logo-wrap {
+  display: flex; align-items: center; gap: 12px;
+}
+.loader-snowflake {
+  width: 36px; height: 36px;
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.loader-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; color: var(--white);
+  letter-spacing: 1px;
+}
+.loader-track {
+  width: 180px; height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px; overflow: hidden;
+}
+.loader-fill {
+  height: 100%; background: var(--yellow);
+  animation: lfill 1.3s ease forwards;
+}
+@keyframes lfill { from{width:0%} to{width:100%} }
+.loader-hint {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  letter-spacing: 3px; text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
+   NAVBAR — Floating inside hero
+══════════════════════════════════════════════ */
+.navbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 40px;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--white);
+}
+.nav-logo-icon {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.nav-logo-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px; font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 8px 8px 8px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  color: var(--white);
+  font-size: 14px; font-weight: 500;
+}
+.nav-cta:hover {
+  background: rgba(255,255,255,0.22);
+  transform: scale(1.02);
+}
+.nav-cta-arrow {
+  width: 32px; height: 32px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--black);
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+.nav-cta:hover .nav-cta-arrow { transform: rotate(45deg); }
+
+/* ══════════════════════════════════════════════
+   HERO — Full bleed image card
+══════════════════════════════════════════════ */
+.hero-wrapper {
+  background: var(--off-white);
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.hero-card {
+  position: relative;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  min-height: 88vh;
+  background: var(--black);
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80') center/cover no-repeat;
+  filter: brightness(0.72);
+  transition: transform 8s ease;
+}
+.hero-card:hover .hero-bg { transform: scale(1.02); }
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,30,0,0.3) 50%,
+    transparent 100%
+  );
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 130px 48px 52px;
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+.hero-eyebrow-dot {
+  width: 5px; height: 5px;
+  background: var(--yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--yellow);
+}
+
+.hero-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1.02;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -1.5px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 440px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.9s ease 0.1s both;
+}
+
+.hero-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white);
+  color: var(--black);
+  padding: 14px 14px 14px 26px;
+  border-radius: 50px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  animation: fadeUp 1s ease 0.2s both;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.hero-btn:hover {
+  background: var(--yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(245,197,24,0.4);
+}
+.hero-btn-icon {
+  width: 36px; height: 36px;
+  background: var(--black);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--white);
+  transition: transform 0.3s, background 0.3s;
+}
+.hero-btn:hover .hero-btn-icon { transform: rotate(45deg); background: var(--green); }
+
+/* Stats panel inside hero — bottom overlay */
+.hero-stats-panel {
+  position: absolute;
+  bottom: 0; left: 0;
+  background: var(--white);
+  border-radius: 0 var(--radius-lg) 0 0;
+  padding: 32px 40px;
+  display: flex; gap: 48px;
+  z-index: 3;
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.1);
+}
+.stat-block { min-width: 120px; }
+.stat-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 40px; font-weight: 800;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-desc {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.5;
+  max-width: 130px;
+}
+
+/* Live badge top-right of hero */
+.hero-live-badge {
+  position: absolute;
+  top: 90px; right: 48px;
+  z-index: 3;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: var(--white);
+  animation: fadeUp 1s ease 0.4s both;
+}
+.hlb-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500;
+  margin-bottom: 6px;
+}
+.hlb-row:last-child { margin-bottom: 0; }
+.hlb-dot {
+  width: 6px; height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #4ade80;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hlb-val { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--yellow); margin-left: auto; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ══════════════════════════════════════════════
+   WHO ARE WE SECTION
+══════════════════════════════════════════════ */
+.who-section {
+  background: var(--off-white);
+  padding: 80px 48px;
+}
+.who-pill {
+  display: inline-block;
+  border: 1.5px solid var(--black);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 13px; font-weight: 500;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.who-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--black);
+  margin-bottom: 0;
+  max-width: 560px;
+}
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.who-right {
+  padding-top: 40px;
+}
+.who-desc {
+  font-size: 16px; font-weight: 400;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+.who-tags {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.who-tag {
+  padding: 7px 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 50px;
+  font-size: 13px; font-weight: 500;
+  color: var(--gray-800);
+  transition: all 0.25s;
+}
+.who-tag:hover {
+  background: var(--green-accent);
+  color: var(--white);
+  border-color: var(--green-accent);
+}
+
+/* World map visual with country flags */
+.world-visual {
+  position: relative;
+  height: 280px;
+  display: flex; align-items: center; justify-content: center;
+}
+.world-circle {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--gray-200);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.world-circle-inner {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--gray-300, #d0d0c8);
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle, var(--gray-100) 0%, var(--white) 70%);
+}
+.world-center-icon {
+  font-size: 32px;
+}
+.flag-node {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.flag-circle {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--white);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  background: var(--white);
+}
+.flag-label {
+  font-size: 10px; font-weight: 600;
+  color: var(--gray-600);
+  letter-spacing: 0.5px;
+}
+.connector-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green-accent);
+  box-shadow: 0 0 8px rgba(122,182,72,0.6);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.4);opacity:0.6}
+}
+
+/* ══════════════════════════════════════════════
+   PRODUCTS SECTION — Cards with real images
+══════════════════════════════════════════════ */
+.products-section {
+  background: var(--white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray-200);
+}
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+}
+.section-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: var(--black);
+}
+.section-h2 span { color: var(--green-accent); }
+.section-sub {
+  font-size: 15px; color: var(--gray-600); line-height: 1.6;
+  max-width: 380px;
+}
+.see-all-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--black);
+  border-radius: 50px;
+  padding: 10px 10px 10px 20px;
+  font-size: 14px; font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.see-all-btn:hover { background: var(--black); color: var(--white); }
+.see-all-icon {
+  width: 30px; height: 30px;
+  background: var(--black);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 13px;
+  transition: transform 0.3s, background 0.3s;
+}
+.see-all-btn:hover .see-all-icon { transform: rotate(45deg); background: var(--green-accent); }
+
+/* Product cards grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.product-card:hover {
+  border-color: var(--green-accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+.product-img-wrap {
+  position: relative;
+  height: 200px;
+  background: var(--gray-100);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.product-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-img { transform: scale(1.05); }
+
+.product-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 50px;
+}
+.product-badge.green { background: var(--green-accent); }
+.product-badge.yellow { background: var(--yellow); color: var(--black); }
+
+.product-brand-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px; font-weight: 700;
+  color: var(--gray-800);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.product-info {
+  padding: 20px 22px 22px;
+}
+.product-cat {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green-accent);
+  margin-bottom: 6px;
+}
+.product-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--black); line-height: 1.2;
+  margin-bottom: 8px;
+}
+.product-desc-small {
+  font-size: 13px; color: var(--gray-600);
+  line-height: 1.6; margin-bottom: 14px;
+}
+.product-price-row {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.product-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px; font-weight: 700;
+  color: var(--black);
+}
+.product-cta {
+  width: 32px; height: 32px;
+  background: var(--black);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 13px;
+  transition: all 0.3s;
+}
+.product-card:hover .product-cta {
+  background: var(--green-accent);
+  transform: rotate(45deg);
+}
+
+/* ══════════════════════════════════════════════
+   AUTHORISED DEALERS & INSTALLERS
+══════════════════════════════════════════════ */
+.dealers-section {
+  background: var(--off-white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.dealers-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+.dealers-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--green-accent);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px; font-weight: 600;
+  color: var(--green-mid);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.dealers-pill-dot { width: 6px; height: 6px; background: var(--green-accent); border-radius: 50%; }
+.dealers-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -1.2px;
+  color: var(--black); line-height: 1.05;
+}
+.dealers-right-desc {
+  font-size: 15px; color: var(--gray-600);
+  line-height: 1.8; margin-bottom: 28px;
+}
+.dealers-cert-row {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.cert-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  color: var(--black);
+  transition: all 0.25s;
+}
+.cert-chip:hover { border-color: var(--green-accent); color: var(--green-mid); }
+
+/* Brand + product showcase cards */
+.brand-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.brand-showcase-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
+}
+.brand-showcase-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+.bsc-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.bsc-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.3px;
+}
+.bsc-auth-badge {
+  margin-left: auto;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: #ECFDF0;
+  color: var(--green-mid);
+  border: 1px solid #BBF7CC;
+  padding: 3px 8px; border-radius: 50px;
+}
+
+.bsc-img-wrap {
+  height: 160px;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.bsc-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  transition: transform 0.4s;
+}
+.brand-showcase-card:hover .bsc-img { transform: scale(1.08); }
+
+.bsc-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.brand-showcase-card:hover .bsc-overlay { background: rgba(0,0,0,0.06); }
+
+.bsc-body {
+  padding: 14px 18px 18px;
+}
+.bsc-product-name {
+  font-size: 14px; font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.bsc-product-spec {
+  font-size: 12px; color: var(--gray-600);
+  line-height: 1.5; margin-bottom: 12px;
+}
+.bsc-range {
+  font-size: 11px; font-weight: 700;
+  color: var(--green-mid);
+  font-family: 'Space Mono', monospace;
+}
+.bsc-enquire {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-100);
+}
+.bsc-enquire-btn {
+  font-size: 12px; font-weight: 600;
+  color: var(--gray-800);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.2s;
+}
+.bsc-enquire-btn:hover { color: var(--green-mid); }
+
+/* Brand logo strip */
+.brand-logo-strip {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 32px;
+  background: var(--white);
+}
+.bls-item {
+  flex: 1;
+  padding: 22px 24px;
+  text-align: center;
+  border-right: 1px solid var(--gray-200);
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800;
+  color: var(--gray-400);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  cursor: default;
+}
+.bls-item:last-child { border-right: none; }
+.bls-item:hover { color: var(--black); background: var(--gray-100); }
+
+/* ══════════════════════════════════════════════
+   SOLAR CALCULATOR SECTION
+══════════════════════════════════════════════ */
+.calc-section {
+  background: var(--black);
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.calc-bg-deco {
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122,182,72,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.calc-section .section-h2 { color: var(--white); }
+.calc-section .section-h2 span { color: var(--yellow); }
+.calc-section .section-sub { color: rgba(255,255,255,0.5); }
+
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 52px;
+  align-items: start;
+}
+
+.calc-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 36px;
+}
+.calc-field-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 8px; display: block;
+}
+.calc-input {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 18px;
+  transition: border-color 0.25s;
+}
+.calc-input:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(245,197,24,0.12);
+}
+.calc-input option { background: #1a1a1a; }
+.calc-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--yellow);
+  color: var(--black);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.calc-btn:hover { background: var(--yellow-warm); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,197,24,0.35); }
+
+.calc-result-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(122,182,72,0.3);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  position: sticky;
+  top: 100px;
+}
+.calc-result-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green-accent);
+  margin-bottom: 28px;
+}
+.cr-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.cr-row:last-child { border-bottom: none; }
+.cr-key { font-size: 14px; color: rgba(255,255,255,0.55); }
+.cr-val {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px; font-weight: 700; color: var(--white);
+}
+.cr-val.big { font-size: 28px; color: var(--green-accent); }
+.cr-val.yellow { color: var(--yellow); }
+.calc-cta-link {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--green-accent);
+  color: var(--white);
+  padding: 14px 14px 14px 22px;
+  border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: all 0.3s;
+}
+.calc-cta-link:hover { background: var(--green-light); transform: translateY(-1px); }
+
+/* ══════════════════════════════════════════════
+   INSTALLATIONS SECTION
+══════════════════════════════════════════════ */
+.installs-section {
+  background: var(--white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray-200);
+}
+.install-tabs-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+}
+.install-tabs {
+  display: flex; gap: 6px;
+  background: var(--gray-100);
+  border-radius: 50px;
+  padding: 4px;
+}
+.itab {
+  padding: 8px 20px;
+  border: none; background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--gray-600);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.itab.active {
+  background: var(--black);
+  color: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.install-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 14px;
+}
+.install-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  min-height: 180px;
+  transition: transform 0.35s, box-shadow 0.35s;
+  border: 1px solid var(--gray-200);
+}
+.install-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 380px;
+}
+.install-card:hover {
+  transform: scale(1.018);
+  box-shadow: var(--shadow-hover);
+  z-index: 2;
+}
+.install-bg {
+  position: absolute; inset: 0;
+}
+.install-panel-visual {
+  width: 100%; height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px; padding: 6px;
+  background: linear-gradient(135deg, #0A2A6E20, #1565C030);
+}
+.ipv-cell {
+  background: linear-gradient(135deg, #1565C0, #0D47A1);
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.install-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  padding: 20px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.install-cat {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 5px;
+}
+.install-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--white); line-height: 1.2;
+}
+.install-card.featured .install-title { font-size: 24px; }
+.install-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 8px; flex-wrap: wrap;
+}
+.install-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(74,222,128,0.2);
+  border: 1px solid rgba(74,222,128,0.4);
+  color: #4ade80;
+  padding: 3px 8px; border-radius: 50px;
+  letter-spacing: 1px;
+}
+.install-meta span {
+  font-size: 11px; color: rgba(255,255,255,0.6);
+}
+
+/* ══════════════════════════════════════════════
+   CONTACT SECTION
+══════════════════════════════════════════════ */
+.contact-section {
+  background: var(--off-white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray-200);
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -1.2px;
+  color: var(--black); line-height: 1.05;
+  margin-bottom: 24px;
+}
+.contact-h2 span { color: var(--green-accent); }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+.contact-detail:hover { background: var(--white); }
+.contact-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.contact-text strong {
+  display: block; font-size: 14px; font-weight: 600;
+  color: var(--black); margin-bottom: 3px;
+}
+.contact-text { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+.contact-text a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
+.contact-text a:hover { color: var(--green-accent); }
+
+/* Form */
+.contact-form-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+.form-label {
+  display: block;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gray-600); margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  background: var(--off-white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 18px;
+  transition: all 0.25s;
+}
+.form-input:focus {
+  border-color: var(--green-accent);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(122,182,72,0.12);
+}
+.form-input option { background: var(--white); }
+textarea.form-input { resize: vertical; min-height: 90px; }
+.form-submit {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 14px 14px 24px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.form-submit:hover { background: var(--green); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.form-submit-icon {
+  width: 36px; height: 36px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--black); font-size: 14px;
+  transition: transform 0.3s;
+}
+.form-submit:hover .form-submit-icon { transform: rotate(45deg); }
+
+/* ══════════════════════════════════════════════
+   MARKETPLACE SECTION
+══════════════════════════════════════════════ */
+.market-section {
+  background: var(--white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray-200);
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.market-card {
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex; flex-direction: column;
+  min-height: 200px;
+  transition: all 0.35s;
+  border: 1px solid transparent;
+}
+.market-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.market-card.blue { background: linear-gradient(135deg, #003F8A, #0078D4); border-color: rgba(255,255,255,0.1); }
+.market-card.amber { background: linear-gradient(135deg, #78350F, #D97706); border-color: rgba(255,255,255,0.1); }
+.market-card.green-card { background: linear-gradient(135deg, #14532D, #16A34A); border-color: rgba(255,255,255,0.1); }
+.market-card.dark-card { background: var(--black); border-color: var(--gray-200); }
+.mc-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+.mc-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+.mc-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; flex: 1; }
+.mc-arrow {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--white);
+  margin-top: 20px;
+  align-self: flex-end;
+  transition: all 0.3s;
+}
+.market-card:hover .mc-arrow { background: var(--yellow); color: var(--black); transform: translateX(3px); }
+
+/* ══════════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════════ */
+.ticker-wrap {
+  background: var(--black);
+  padding: 12px 0; overflow: hidden;
+}
+.ticker-inner {
+  display: flex; white-space: nowrap;
+  animation: ticker 30s linear infinite;
+}
+.ticker-item {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 0 40px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.ticker-sep { color: var(--yellow); font-size: 10px; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+footer {
+  background: var(--black);
+  padding: 60px 48px 32px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 52px;
+  margin-bottom: 52px;
+}
+.footer-brand-col p {
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  line-height: 1.8; margin-top: 16px; max-width: 280px;
+}
+.footer-logo-row {
+  display: flex; align-items: center; gap: 10px;
+}
+.footer-logo-icon {
+  width: 34px; height: 34px;
+  background: var(--yellow);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--black);
+}
+.footer-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800;
+  color: var(--white);
+}
+.footer-brand-name span { color: var(--yellow); }
+.footer-col h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--white); margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-col a {
+  display: block; font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.2s, padding-left 0.2s;
+}
+.footer-col a:hover { color: var(--yellow); padding-left: 4px; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--yellow); }
+
+/* Social */
+.social-row { display: flex; gap: 8px; margin-top: 16px; }
+.social-btn {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.social-btn:hover { background: var(--yellow); border-color: var(--yellow); }
+
+/* ══════════════════════════════════════════════
+   FLOATING ACTIONS
+══════════════════════════════════════════════ */
+.fab-wrap {
+  position: fixed; bottom: 28px; right: 28px;
+  z-index: 998;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 10px;
+}
+.fab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+  animation: float-fab 3.5s ease-in-out infinite;
+}
+.fab.primary { background: var(--black); color: var(--white); }
+.fab.wa { background: #25D366; color: var(--white); animation-delay: 0.5s; }
+.fab:hover { transform: translateY(-4px) !important; box-shadow: 0 14px 40px rgba(0,0,0,0.3); }
+@keyframes float-fab { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 80px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--black);
+  color: var(--white);
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-size: 13px; font-weight: 500;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Reveal */
+.reveal { opacity:0; transform:translateY(32px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.rd1{transition-delay:.1s} .rd2{transition-delay:.2s} .rd3{transition-delay:.3s} .rd4{transition-delay:.4s}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .who-grid, .calc-layout, .contact-layout, .dealers-intro { grid-template-columns: 1fr; gap: 40px; }
+  .brand-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .install-gallery { grid-template-columns: repeat(2, 1fr); }
+  .install-card.featured { grid-column: span 2; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .hero-stats-panel { position: relative; border-radius: var(--radius-md); margin: 16px 20px 0; gap: 32px; flex-wrap: wrap; }
+  .hero-live-badge { display: none; }
+  .navbar { padding: 20px 24px; }
+  .hero-content { padding: 100px 28px 120px; }
+  .navbar .nav-links { display: none; }
+}
+@media (max-width: 640px) {
+  .products-grid, .brand-showcase-grid { grid-template-columns: 1fr; }
+  .install-gallery { grid-template-columns: 1fr; }
+  .install-card.featured { grid-column: 1; grid-row: auto; min-height: 260px; }
+  .market-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-stats-panel { gap: 20px; }
+  .who-section, .products-section, .dealers-section, .calc-section,
+  .installs-section, .contact-section, .market-section, footer { padding-left: 20px; padding-right: 20px; }
+  .hero-wrapper { padding: 12px 12px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo-wrap">
+    <div class="loader-snowflake">⚡</div>
+    <div class="loader-name">Intech Power</div>
+  </div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+  <div class="loader-hint">Powering up…</div>
+</div>
+
+<!-- ═══════════════════ HERO WRAPPER ═══════════════════ -->
+<div class="hero-wrapper">
+  <div class="hero-card">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">⚡</div>
+        <span class="nav-logo-name">Intech Power</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#installs">Installations</a></li>
+        <li><a href="#dealers">Dealers</a></li>
+        <li><a href="#contact">About Us</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">
+        Contact Us
+        <div class="nav-cta-arrow">↗</div>
+      </a>
+    </nav>
+
+    <!-- Live monitor badge -->
+    <div class="hero-live-badge">
+      <div class="hlb-row">
+        <span class="hlb-dot"></span>
+        <span style="font-size:11px;letter-spacing:1px;">SYSTEM ACTIVE</span>
+        <span class="hlb-val" id="live-kw">4.2 kW</span>
+      </div>
+      <div class="hlb-row" style="font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.5px;">
+        500+ Live Installations · Lucknow, UP
+      </div>
+      <div class="hlb-row" style="margin-top:6px;">
+        <span style="font-size:10px;color:rgba(255,255,255,0.5);">Battery</span>
+        <span class="hlb-val">92%</span>
+      </div>
+      <div style="width:100%;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:6px;overflow:hidden;">
+        <div style="width:92%;height:100%;background:#4ade80;border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        New Technology 2025 ⚡
+      </div>
+      <h1 class="hero-h1">Solar Solutions<br>for a Greener<br>Lucknow</h1>
+      <p class="hero-sub">
+        Discover renewable energy with Intech Power's cutting-edge solar panels &amp; power systems. Designed for sustainability, efficiency, and cost savings.
+      </p>
+      <a href="#products" class="hero-btn">
+        Get Started
+        <div class="hero-btn-icon">↗</div>
+      </a>
+    </div>
+
+    <!-- STATS PANEL -->
+    <div class="hero-stats-panel">
+      <div class="stat-block">
+        <div class="stat-value">₹6M+</div>
+        <div class="stat-desc">Annual energy savings generated for clients</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value">500+</div>
+        <div class="stat-desc">Projects completed across Uttar Pradesh</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value">20yr</div>
+        <div class="stat-desc">Trusted power solutions since 2005</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TICKER ═══════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ Solar Power Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🔋 UPS & Inverters <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">☀️ Rooftop Solar Installation <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🔌 CVT & Stabilizers <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🏥 Hospital Power Backup <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🏫 School Solar Solutions <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">📞 9839216349 <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">⚡ Solar Power Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🔋 UPS & Inverters <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">☀️ Rooftop Solar Installation <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🔌 CVT & Stabilizers <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🏥 Hospital Power Backup <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">🏫 School Solar Solutions <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">📞 9839216349 <span class="ticker-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════════ WHO ARE WE ═══════════════════ -->
+<section class="who-section">
+  <div class="who-grid">
+    <div class="reveal">
+      <div class="who-pill">Who are we?</div>
+      <h2 class="who-h2">Experts In<br>Lucknow &amp;<br>Beyond</h2>
+    </div>
+    <div class="who-right reveal rd1">
+      <p class="who-desc">
+        Founded in 2005, Intech Power Systems is Lucknow's premier solar and power backup solutions provider. We are the authorised dealer and installer for top global brands — serving homes, hospitals, schools, and industries across Uttar Pradesh with unmatched technical expertise.
+      </p>
+      <div class="who-tags">
+        <span class="who-tag">✓ Authorised Dealer</span>
+        <span class="who-tag">☀️ Solar EPC</span>
+        <span class="who-tag">🔋 UPS & Inverters</span>
+        <span class="who-tag">🏭 Industrial</span>
+        <span class="who-tag">🏥 Hospital Power</span>
+        <span class="who-tag">24/7 Support</span>
+      </div>
+
+      <!-- World presence visual -->
+      <div class="world-visual" style="margin-top:40px;">
+        <div class="world-circle">
+          <div class="world-circle-inner">
+            <div class="world-center-icon">🌏</div>
+          </div>
+          <!-- Flag nodes -->
+          <div class="flag-node" style="top:-18px;left:50%;transform:translateX(-50%);">
+            <div class="flag-circle">🇮🇳</div>
+            <div class="flag-label">India</div>
+          </div>
+          <div class="flag-node" style="top:50%;right:-24px;transform:translateY(-50%);">
+            <div class="flag-circle">🇩🇪</div>
+            <div class="flag-label">Germany</div>
+          </div>
+          <div class="flag-node" style="top:50%;left:-24px;transform:translateY(-50%);">
+            <div class="flag-circle">🇨🇳</div>
+            <div class="flag-label">China</div>
+          </div>
+          <div class="flag-node" style="bottom:-18px;left:50%;transform:translateX(-50%);">
+            <div class="flag-circle">🇺🇸</div>
+            <div class="flag-label">USA</div>
+          </div>
+        </div>
+        <div class="connector-dot" style="top:80px;left:55%;"></div>
+        <div class="connector-dot" style="top:140px;left:42%;animation-delay:0.7s"></div>
+        <div class="connector-dot" style="top:200px;left:60%;animation-delay:1.3s"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRODUCTS ═══════════════════ -->
+<section id="products" class="products-section">
+  <div class="section-header">
+    <div>
+      <div class="who-pill" style="margin-bottom:12px;">Our Products</div>
+      <h2 class="section-h2">Power Products<br>&amp; <span>Solutions</span></h2>
+    </div>
+    <div style="text-align:right;">
+      <p class="section-sub">From rooftop solar to critical UPS — complete power engineering for every need.</p>
+      <a href="#contact" class="see-all-btn" style="margin-top:16px;display:inline-flex;">
+        Get Quote
+        <div class="see-all-icon">↗</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    <!-- Solar -->
+    <a href="#contact" class="product-card reveal">
+      <div class="product-img-wrap">
+        <img class="product-img"
+          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&q=80"
+          alt="Rooftop Solar System" loading="lazy">
+        <div class="product-badge green">Most Popular</div>
+        <div class="product-brand-badge">Waaree · Havells</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Solar Systems</div>
+        <div class="product-name">Rooftop Solar System</div>
+        <div class="product-desc-small">Grid-tied, off-grid & hybrid solar for homes, schools and commercial buildings. 1kW–500kW.</div>
+        <div class="product-price-row">
+          <div class="product-price">₹65,000/kW+</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- UPS -->
+    <a href="#contact" class="product-card reveal rd1">
+      <div class="product-img-wrap">
+        <img class="product-img"
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80"
+          alt="Online UPS" loading="lazy"
+          onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=\'font-size:64px;text-align:center\'>🔋</div>'">
+        <div class="product-badge">Critical Power</div>
+        <div class="product-brand-badge">APC · Quanta</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">UPS Systems</div>
+        <div class="product-name">Online UPS</div>
+        <div class="product-desc-small">True double-conversion UPS for hospitals, data centres & critical infra. 1kVA–500kVA.</div>
+        <div class="product-price-row">
+          <div class="product-price">₹12,000/kVA+</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Inverter -->
+    <a href="#contact" class="product-card reveal rd2">
+      <div class="product-img-wrap" style="background:#f0f4f0;">
+        <img class="product-img"
+          src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=500&q=80"
+          alt="Home Inverter" loading="lazy"
+          onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=\'font-size:64px;text-align:center;padding:40px\'>🔌</div>'">
+        <div class="product-badge yellow">Home & Office</div>
+        <div class="product-brand-badge">Microtek · Luminous</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Inverters</div>
+        <div class="product-name">Pure Sinewave Inverter</div>
+        <div class="product-desc-small">Pure sine-wave inverters with auto-switching for homes & offices. All battery types supported.</div>
+        <div class="product-price-row">
+          <div class="product-price">₹5,500 onwards</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Battery -->
+    <a href="#contact" class="product-card reveal rd3">
+      <div class="product-img-wrap">
+        <img class="product-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Exide_battery.jpg/320px-Exide_battery.jpg"
+          alt="Battery" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1603539947678-cd3954ed515d?w=500&q=80'">
+        <div class="product-badge">Long Life</div>
+        <div class="product-brand-badge">Exide · Luminous</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Batteries</div>
+        <div class="product-name">Tubular Battery</div>
+        <div class="product-desc-small">Tubular, VRLA, AGM & Li-Ion batteries for solar, UPS & inverter applications. 40Ah–200Ah.</div>
+        <div class="product-price-row">
+          <div class="product-price">₹8,500 onwards</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Stabilizer -->
+    <a href="#contact" class="product-card reveal">
+      <div class="product-img-wrap" style="background:#f4f0ec;">
+        <img class="product-img"
+          src="https://m.media-amazon.com/images/I/61dCaHf-XEL._SX425_.jpg"
+          alt="Stabilizer" loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80'">
+        <div class="product-badge">Protection</div>
+        <div class="product-brand-badge">Microtek · Havells</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Voltage Control</div>
+        <div class="product-name">CVT / Stabilizer</div>
+        <div class="product-desc-small">Constant Voltage Transformers & servo stabilizers protecting sensitive equipment. 1kVA–100kVA.</div>
+        <div class="product-price-row">
+          <div class="product-price">₹3,500 onwards</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- AMC -->
+    <a href="#contact" class="product-card reveal rd1">
+      <div class="product-img-wrap" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">
+        <div style="font-size:72px;text-align:center;padding:40px;">🔧</div>
+        <div class="product-badge green">Service Plan</div>
+        <div class="product-brand-badge">All Brands</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Maintenance</div>
+        <div class="product-name">Annual Maintenance</div>
+        <div class="product-desc-small">AMC contracts covering scheduled servicing, emergency call-outs & priority spare parts support.</div>
+        <div class="product-price-row">
+          <div class="product-price">Custom Plans</div>
+          <div class="product-cta">↗</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ AUTHORISED DEALERS ═══════════════════ -->
+<section id="dealers" class="dealers-section">
+  <div class="dealers-intro">
+    <div class="reveal">
+      <div class="dealers-pill"><span class="dealers-pill-dot"></span>Verified Partners</div>
+      <h2 class="dealers-h2">Authorised<br>Dealers &amp;<br>Installers</h2>
+    </div>
+    <div class="reveal rd1">
+      <p class="dealers-right-desc">
+        Intech Power Systems is the officially authorised dealer and certified installer for all major power and solar brands in Uttar Pradesh. We source directly from manufacturers — guaranteeing genuine products, full warranty coverage, and factory-trained installation.
+      </p>
+      <div class="dealers-cert-row">
+        <div class="cert-chip">✓ ISO Certified</div>
+        <div class="cert-chip">✓ MNRE Approved</div>
+        <div class="cert-chip">✓ GST Compliant</div>
+        <div class="cert-chip">✓ Factory Trained</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Product Showcase with thumbnails -->
+  <div class="brand-showcase-grid">
+
+    <!-- EXIDE -->
+    <div class="brand-showcase-card reveal">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#E31E24;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:800;">EX</div>
+        <div class="bsc-brand-name">EXIDE</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap">
+        <img class="bsc-img"
+          src="https://www.exideindustries.com/images/product/inverter-battery/it500.png"
+          alt="Exide Battery"
+          onerror="this.src='https://m.media-amazon.com/images/I/51CcGhRH31L._SX425_.jpg'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Exide IT750 Inva Tubular</div>
+        <div class="bsc-product-spec">150Ah Tall Tubular Battery — 5-year warranty, compatible with all inverters</div>
+        <div class="bsc-range">₹12,500 – ₹18,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">+ More models</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APC -->
+    <div class="brand-showcase-card reveal rd1">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#C41E3A;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:800;">APC</div>
+        <div class="bsc-brand-name">APC</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap">
+        <img class="bsc-img"
+          src="https://m.media-amazon.com/images/I/41pR8B4GVxL._SX425_.jpg"
+          alt="APC UPS"
+          onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">APC Smart-UPS 1500VA</div>
+        <div class="bsc-product-spec">Online double-conversion UPS, LCD display, rack/tower form factor</div>
+        <div class="bsc-range">₹35,000 – ₹2,50,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">1kVA – 500kVA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MICROTEK -->
+    <div class="brand-showcase-card reveal rd2">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#003F8A;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:800;">MT</div>
+        <div class="bsc-brand-name">Microtek</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#f0f4f8;">
+        <img class="bsc-img"
+          src="https://m.media-amazon.com/images/I/61qBt6XwBSL._SX425_.jpg"
+          alt="Microtek Inverter"
+          onerror="this.src='https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=400&q=70'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Microtek Elite UPS 1500 VA</div>
+        <div class="bsc-product-spec">Pure sine wave inverter, LED display, auto restart with memory</div>
+        <div class="bsc-range">₹4,500 – ₹22,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">600VA – 10kVA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAAREE -->
+    <div class="brand-showcase-card reveal rd3">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#FF6B00;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:800;">WR</div>
+        <div class="bsc-brand-name">Waaree</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#f0f8f0;">
+        <img class="bsc-img"
+          src="https://www.waaree.com/images/product/mono-perc.png"
+          alt="Waaree Solar Panel"
+          onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&q=70'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Waaree 550W Mono PERC</div>
+        <div class="bsc-product-spec">High efficiency monocrystalline PERC module, 25-year performance warranty</div>
+        <div class="bsc-range">₹14,000 – ₹18,000/panel</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">100W – 700W</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUMINOUS -->
+    <div class="brand-showcase-card reveal">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#FFC107;border-radius:6px;display:flex;align-items:center;justify-content:center;color:black;font-size:10px;font-weight:800;">LM</div>
+        <div class="bsc-brand-name">Luminous</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#fffbf0;">
+        <img class="bsc-img"
+          src="https://www.luminousindia.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/o/solar-nxt-hybrid-2-kva.png"
+          alt="Luminous Solar Inverter"
+          onerror="this.src='https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=400&q=70'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Luminous Solar NXT Hybrid</div>
+        <div class="bsc-product-spec">1100VA–3.5kVA solar hybrid inverter, MPPT charge controller built-in</div>
+        <div class="bsc-range">₹8,500 – ₹32,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">1kVA – 10kVA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAVELLS -->
+    <div class="brand-showcase-card reveal rd1">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#D62B31;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:800;">HV</div>
+        <div class="bsc-brand-name">Havells</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#f8f0f0;">
+        <img class="bsc-img"
+          src="https://www.havells.com/MediaFiles/Products/Havells-SE-1101S-LM-FS-1.jpg"
+          alt="Havells Stabilizer"
+          onerror="this.src='https://m.media-amazon.com/images/I/61dCaHf-XEL._SX425_.jpg'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Havells Servo Stabilizer</div>
+        <div class="bsc-product-spec">Single/three-phase servo voltage stabilizer, wide voltage input range</div>
+        <div class="bsc-range">₹4,000 – ₹95,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">1kVA – 100kVA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUANTA -->
+    <div class="brand-showcase-card reveal rd2">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#2D5016;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:800;">QT</div>
+        <div class="bsc-brand-name">Quanta</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#f0f4f0;">
+        <img class="bsc-img"
+          src="https://quantabattery.com/wp-content/uploads/2021/08/VRLA.jpg"
+          alt="Quanta VRLA Battery"
+          onerror="this.src='https://images.unsplash.com/photo-1603539947678-cd3954ed515d?w=400&q=70'"
+          loading="lazy">
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">Quanta VRLA Battery</div>
+        <div class="bsc-product-spec">Sealed maintenance-free VRLA batteries for UPS & telecom applications</div>
+        <div class="bsc-range">₹3,500 – ₹45,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">7Ah – 200Ah</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BPE -->
+    <div class="brand-showcase-card reveal rd3">
+      <div class="bsc-header">
+        <div style="width:32px;height:32px;background:#1A1A2E;border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:800;">BP</div>
+        <div class="bsc-brand-name">BPE</div>
+        <div class="bsc-auth-badge">Authorised</div>
+      </div>
+      <div class="bsc-img-wrap" style="background:#f2f4f8;">
+        <div style="font-size:72px;text-align:center;padding:30px;">🔒</div>
+        <div class="bsc-overlay"></div>
+      </div>
+      <div class="bsc-body">
+        <div class="bsc-product-name">BPE Online UPS</div>
+        <div class="bsc-product-spec">Industrial-grade online UPS for critical loads, modular architecture</div>
+        <div class="bsc-range">₹28,000 – ₹4,50,000</div>
+        <div class="bsc-enquire">
+          <a href="#contact" class="bsc-enquire-btn">Get Quote →</a>
+          <div style="font-size:10px;color:var(--gray-400);">3kVA – 200kVA</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Brand logo strip -->
+  <div class="brand-logo-strip">
+    <div class="bls-item">Exide</div>
+    <div class="bls-item">APC</div>
+    <div class="bls-item">Microtek</div>
+    <div class="bls-item">Waaree</div>
+    <div class="bls-item">Luminous</div>
+    <div class="bls-item">Havells</div>
+    <div class="bls-item">Quanta</div>
+    <div class="bls-item">BPE</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SOLAR CALCULATOR ═══════════════════ -->
+<section id="calculator" class="calc-section">
+  <div class="calc-bg-deco"></div>
+  <div class="section-header">
+    <div>
+      <div class="who-pill" style="border-color:rgba(122,182,72,0.4);color:var(--green-accent);margin-bottom:12px;">Smart Tool</div>
+      <h2 class="section-h2">Solar Savings<br><span>Calculator</span></h2>
+    </div>
+    <p class="section-sub" style="align-self:flex-end;">Estimate monthly savings, payback period and recommended system size instantly.</p>
+  </div>
+
+  <div class="calc-layout">
+    <div class="calc-card reveal">
+      <label class="calc-field-label">Monthly Electricity Bill (₹)</label>
+      <input type="number" class="calc-input" id="c-bill" value="3000" placeholder="3000" oninput="calcSolar()">
+
+      <label class="calc-field-label">Roof Area Available</label>
+      <select class="calc-input" id="c-roof" onchange="calcSolar()">
+        <option value="small">Small (≤ 100 sq.ft)</option>
+        <option value="medium" selected>Medium (100–300 sq.ft)</option>
+        <option value="large">Large (300–600 sq.ft)</option>
+        <option value="xl">Very Large (600+ sq.ft)</option>
+      </select>
+
+      <label class="calc-field-label">Property Type</label>
+      <select class="calc-input" id="c-type" onchange="calcSolar()">
+        <option value="home">Residential</option>
+        <option value="commercial">Commercial</option>
+        <option value="industrial">Industrial</option>
+      </select>
+
+      <label class="calc-field-label">Daily Load Hours</label>
+      <input type="number" class="calc-input" id="c-hours" value="10" min="1" max="24" oninput="calcSolar()">
+
+      <button class="calc-btn" onclick="showToast('✅ Check your estimate on the right!')">Calculate Now ⚡</button>
+    </div>
+
+    <div class="calc-result-card reveal rd1">
+      <div class="calc-result-title">⚡ Your Solar Estimate</div>
+      <div class="cr-row"><span class="cr-key">Recommended System Size</span><span class="cr-val" id="r-size">3 kW</span></div>
+      <div class="cr-row"><span class="cr-key">Monthly Savings</span><span class="cr-val big" id="r-save">₹2,400</span></div>
+      <div class="cr-row"><span class="cr-key">Annual Savings</span><span class="cr-val yellow" id="r-annual">₹28,800</span></div>
+      <div class="cr-row"><span class="cr-key">Estimated System Cost</span><span class="cr-val" id="r-cost">₹1,80,000</span></div>
+      <div class="cr-row"><span class="cr-key">Payback Period</span><span class="cr-val" id="r-payback">6.3 yrs</span></div>
+      <div class="cr-row"><span class="cr-key">CO₂ Saved / Year</span><span class="cr-val" style="color:#4ade80" id="r-co2">1.8 tonnes</span></div>
+      <a href="#contact" class="calc-cta-link">
+        Get Free Site Assessment
+        <div style="width:32px;height:32px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ INSTALLATIONS ═══════════════════ -->
+<section id="installs" class="installs-section">
+  <div class="install-tabs-row">
+    <div>
+      <div class="who-pill" style="margin-bottom:12px;">Proven Track Record</div>
+      <h2 class="section-h2">Our <span>Installations</span></h2>
+    </div>
+    <div class="install-tabs">
+      <button class="itab active" onclick="filterTab(this,'all')">All</button>
+      <button class="itab" onclick="filterTab(this,'home')">Homes</button>
+      <button class="itab" onclick="filterTab(this,'hospital')">Hospitals</button>
+      <button class="itab" onclick="filterTab(this,'school')">Schools</button>
+      <button class="itab" onclick="filterTab(this,'industry')">Industry</button>
+    </div>
+  </div>
+
+  <div class="install-gallery" id="installGallery">
+    <div class="install-card featured reveal" data-cat="home">
+      <div class="install-bg">
+        <div class="install-panel-visual">
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+          <div class="ipv-cell"></div><div class="ipv-cell"></div><div class="ipv-cell"></div>
+        </div>
+      </div>
+      <div class="install-overlay">
+        <div>
+          <div class="install-cat">🏠 Residential</div>
+          <div class="install-title">10kW Rooftop Solar — Gomti Nagar, Lucknow</div>
+          <div class="install-meta">
+            <span class="install-badge">✓ Live</span>
+            <span>5 kWh/day saving</span>
+            <span>₹2,400/month saved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-card reveal rd1" data-cat="hospital" style="background:linear-gradient(135deg,#0A1628,#1A0A2E);">
+      <div class="install-overlay" style="justify-content:center;padding:28px 20px 20px;">
+        <div style="font-size:52px;text-align:center;margin-bottom:16px;opacity:0.4;">🏥</div>
+        <div>
+          <div class="install-cat">🏥 Hospital</div>
+          <div class="install-title">Critical UPS — Private Hospital, Hazratganj</div>
+          <div class="install-meta"><span class="install-badge">✓ Live</span><span>80kVA Online UPS</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-card reveal rd2" data-cat="school" style="background:linear-gradient(135deg,#0A1A28,#0E3A1A);">
+      <div class="install-overlay" style="justify-content:center;padding:28px 20px 20px;">
+        <div style="font-size:52px;text-align:center;margin-bottom:16px;opacity:0.35;">🏫</div>
+        <div>
+          <div class="install-cat">🏫 School</div>
+          <div class="install-title">20kW Solar — Convent School, Aliganj</div>
+          <div class="install-meta"><span class="install-badge">✓ Live</span><span>Zero electricity bill</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-card reveal" data-cat="industry" style="background:linear-gradient(135deg,#1A0A00,#3D1A00);">
+      <div class="install-overlay" style="justify-content:center;padding:28px 20px 20px;">
+        <div style="font-size:52px;text-align:center;margin-bottom:16px;opacity:0.35;">🏭</div>
+        <div>
+          <div class="install-cat">🏭 Industrial</div>
+          <div class="install-title">100kVA UPS — IT Park, Vibhuti Khand</div>
+          <div class="install-meta"><span class="install-badge">✓ Live</span><span>Server room</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-card reveal rd1" data-cat="hospital" style="background:linear-gradient(135deg,#0A1628,#2A0A1E);">
+      <div class="install-overlay" style="justify-content:center;padding:28px 20px 20px;">
+        <div style="font-size:52px;text-align:center;margin-bottom:16px;opacity:0.35;">⚕️</div>
+        <div>
+          <div class="install-cat">🏥 Clinic</div>
+          <div class="install-title">3kW Solar + Battery — Diagnostic Centre</div>
+          <div class="install-meta"><span class="install-badge">✓ Live</span><span>Off-grid capable</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-card reveal rd2" data-cat="home" style="background:linear-gradient(135deg,#0A1428,#0A2840);">
+      <div class="install-overlay" style="justify-content:center;padding:28px 20px 20px;">
+        <div style="font-size:52px;text-align:center;margin-bottom:16px;opacity:0.35;">🏡</div>
+        <div>
+          <div class="install-cat">🏠 Villa</div>
+          <div class="install-title">5kW Hybrid Solar — Indira Nagar</div>
+          <div class="install-meta"><span class="install-badge">✓ Live</span><span>Backup + Grid</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MARKETPLACE ═══════════════════ -->
+<section class="market-section">
+  <div class="section-header">
+    <div>
+      <div class="who-pill" style="margin-bottom:12px;">Shop Online</div>
+      <h2 class="section-h2">Find Your<br><span>Power Solution</span></h2>
+    </div>
+    <p class="section-sub" style="align-self:flex-end;">Order online or visit our store for the best deals.</p>
+  </div>
+
+  <div class="market-grid">
+    <a href="https://www.amazon.in/s?k=solar+inverter+ups" target="_blank" class="market-card blue reveal">
+      <div class="mc-label">Shop Online</div>
+      <div class="mc-title">Amazon India</div>
+      <div class="mc-desc">Order UPS, batteries, inverters & solar accessories with fast delivery across India.</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="https://www.flipkart.com/search?q=solar+inverter" target="_blank" class="market-card amber reveal rd1">
+      <div class="mc-label">Shop Online</div>
+      <div class="mc-title">Flipkart</div>
+      <div class="mc-desc">Compare prices and buy from India's largest electronics marketplace.</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="https://www.intechpowersystems.com" target="_blank" class="market-card green-card reveal rd2">
+      <div class="mc-label">Official Store</div>
+      <div class="mc-title">Our Website</div>
+      <div class="mc-desc">Full product listings, datasheets, and bulk enquiry portal with exclusive deals.</div>
+      <div class="mc-arrow">→</div>
+    </a>
+    <a href="https://apex.oracle.com" target="_blank" class="market-card dark-card reveal rd3">
+      <div class="mc-label">Business Portal</div>
+      <div class="mc-title">APEX Portal 🔐</div>
+      <div class="mc-desc">Order tracking, AMC management and service requests for business accounts.</div>
+      <div class="mc-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact" class="contact-section">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="who-pill" style="margin-bottom:16px;">Get In Touch</div>
+      <h2 class="contact-h2">Get Your<br><span>Free Quote</span><br>Today</h2>
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.8;margin-bottom:24px;max-width:380px;">
+        Our engineers assess your energy needs and deliver the most cost-effective power solution. No obligation, always free.
+      </p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">
+          <strong>Visit Us</strong>
+          Shop No. 42 & 43, K.B. Plaza, Near Leela Cinema,<br>
+          Nawal Kishor Road, Hazratganj, Lucknow – 226001
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <strong>Call / WhatsApp</strong>
+          <a href="tel:9839216349">9839216349</a> | <a href="tel:9415010093">9415010093</a><br>
+          Office: 0522-4080661
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📧</div>
+        <div class="contact-text">
+          <strong>Email</strong>
+          <a href="mailto:info@intechpowersystems.com">info@intechpowersystems.com</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-text">
+          <strong>Working Hours</strong>
+          Mon–Sat: 9:30 AM – 7:30 PM | Emergency: 24/7
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal rd1">
+      <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:24px;">Request a Free Quote</h3>
+      <label class="form-label">Your Name *</label>
+      <input type="text" class="form-input" id="f-name" placeholder="P.K. Singh">
+      <label class="form-label">Phone / WhatsApp *</label>
+      <input type="tel" class="form-input" id="f-phone" placeholder="+91 98392 16349">
+      <label class="form-label">I Need</label>
+      <select class="form-input" id="f-need">
+        <option>Select product / service</option>
+        <option>Rooftop Solar System</option>
+        <option>Home Inverter + Battery</option>
+        <option>Industrial / Commercial UPS</option>
+        <option>CVT / Stabilizer</option>
+        <option>Annual Maintenance Contract</option>
+        <option>Solar for School / Hospital</option>
+        <option>Other</option>
+      </select>
+      <label class="form-label">Message</label>
+      <textarea class="form-input" placeholder="Tell us your requirement — load, location, budget…"></textarea>
+      <button class="form-submit" onclick="submitForm()">
+        Send Request — It's Free
+        <div class="form-submit-icon">↗</div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <div class="footer-logo-row">
+        <div class="footer-logo-icon">⚡</div>
+        <div class="footer-brand-name">Intech <span>Power</span></div>
+      </div>
+      <p>Lucknow's most trusted solar and power backup solutions provider since 2005. Authorised dealer for Exide, Microtek, APC, Quanta and more.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn">📘</a>
+        <a href="#" class="social-btn">📸</a>
+        <a href="https://wa.me/919839216349" class="social-btn">💬</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#products">Solar Systems</a>
+      <a href="#products">UPS & Inverters</a>
+      <a href="#products">Batteries</a>
+      <a href="#products">CVT & Stabilizers</a>
+      <a href="#products">AMC Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <a href="#installs">Residential</a>
+      <a href="#installs">Hospitals</a>
+      <a href="#installs">Schools</a>
+      <a href="#installs">Industrial</a>
+      <a href="#installs">Commercial</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://apex.oracle.com" target="_blank">🔐 Portal Login</a>
+      <a href="https://www.amazon.in" target="_blank">Amazon Store</a>
+      <a href="https://www.flipkart.com" target="_blank">Flipkart Store</a>
+      <a href="#calculator">Solar Calculator</a>
+      <a href="#contact">Free Quote</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Intech Power Systems. All rights reserved. | GST Compliant | Lucknow, UP – 226001</span>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="https://apex.oracle.com" target="_blank">Portal</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="fab-wrap">
+  <a href="https://wa.me/919839216349" target="_blank" class="fab wa">💬 WhatsApp</a>
+  <a href="#contact" class="fab primary">⚡ Free Quote</a>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+/* Loader */
+window.addEventListener('load',function(){
+  setTimeout(function(){ document.getElementById('loader').classList.add('gone'); }, 1500);
+});
+
+/* Scroll reveal */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.08}).observe ? (function(){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+    },{threshold:0.08});
+    els.forEach(function(el){ obs.observe(el); });
+  })() : els.forEach(function(el){ el.classList.add('visible'); });
+})();
+
+/* Live KW fluctuation */
+setInterval(function(){
+  var el = document.getElementById('live-kw');
+  if(el) el.textContent = (3.8 + Math.random()*0.8).toFixed(1)+' kW';
+}, 2500);
+
+/* Toast */
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3500);
+}
+
+/* Form submit */
+function submitForm(){
+  var name = (document.getElementById('f-name')||{}).value||'';
+  var phone = (document.getElementById('f-phone')||{}).value||'';
+  if(!name.trim()){ showToast('⚠️ Please enter your name'); return; }
+  if(!phone.trim()){ showToast('⚠️ Please enter your phone'); return; }
+  showToast('✅ Request sent! Our team will call you shortly.');
+}
+
+/* Solar Calculator */
+function calcSolar(){
+  var bill = parseFloat(document.getElementById('c-bill').value)||0;
+  var hours = parseFloat(document.getElementById('c-hours').value)||8;
+  var roof = document.getElementById('c-roof').value;
+  var tariff = 7;
+  var units = bill / tariff;
+  var dailyUnits = units / 30;
+  var peakSun = 5.5;
+  var kw = Math.max(1, +(dailyUnits / peakSun / 0.8).toFixed(1));
+  var capMap = {small:2,medium:5,large:10,xl:20};
+  kw = Math.min(kw, capMap[roof]||5);
+  var save = Math.round(kw * peakSun * 30 * tariff * 0.85);
+  var annual = save * 12;
+  var cost = Math.round(kw * 65000 / 1000) * 1000;
+  var pb = (cost / annual).toFixed(1);
+  var co2 = +(kw * peakSun * 365 * 0.82 / 1000).toFixed(1);
+  function f(n){ return '₹'+n.toLocaleString('en-IN'); }
+  document.getElementById('r-size').textContent = kw+' kW';
+  document.getElementById('r-save').textContent = f(save);
+  document.getElementById('r-annual').textContent = f(annual);
+  document.getElementById('r-cost').textContent = f(cost);
+  document.getElementById('r-payback').textContent = pb+' yrs';
+  document.getElementById('r-co2').textContent = co2+' tonnes';
+}
+calcSolar();
+
+/* Installations tab filter */
+function filterTab(btn, cat){
+  document.querySelectorAll('.itab').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('#installGallery .install-card').forEach(function(c){
+    c.style.display = (cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
